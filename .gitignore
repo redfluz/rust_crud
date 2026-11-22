@@ -1,0 +1,13 @@
+# Rust build output
+/target
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Editor & OS clutter (keep only what you use)
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

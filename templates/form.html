@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% if editing %}Edit User{% else %}Add User{% endif %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="py-4">
+<div class="container" style="max-width: 650px;">
+    <h1 class="h4 mb-3">{% if editing %}Edit User{% else %}Add User{% endif %}</h1>
+
+    {% if editing %}
+    <form action="/user/{{ editing.id }}/update" method="post" class="row g-2">
+        <div class="col-sm-6">
+            <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    placeholder="Name"
+                    value="{{ editing.name }}"
+                    required
+            />
+        </div>
+        <div class="col-sm-3">
+            <input
+                    type="number"
+                    name="age"
+                    class="form-control"
+                    placeholder="Age"
+                    min="0"
+                    value="{{ editing.age }}"
+                    required
+            />
+        </div>
+        <div class="col-sm-3 d-flex gap-1">
+            <button type="submit" class="btn btn-primary w-100">Update</button>
+            <a href="/" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+    {% else %}
+    <form action="/user" method="post" class="row g-2">
+        <div class="col-sm-6">
+            <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    placeholder="Name"
+                    required
+            />
+        </div>
+        <div class="col-sm-3">
+            <input
+                    type="number"
+                    name="age"
+                    class="form-control"
+                    placeholder="Age"
+                    min="0"
+                    required
+            />
+        </div>
+        <div class="col-sm-3 d-flex gap-1">
+            <button type="submit" class="btn btn-primary w-100">Save</button>
+            <a href="/" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+    {% endif %}
+</div>
+</body>
+</html>

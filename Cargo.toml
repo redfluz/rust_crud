@@ -1,0 +1,12 @@
+[package]
+name = "programming"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.8"
+dotenvy = "0.15"
+minijinja = { version = "3.1.0", features = ["serde"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+sqlx = { version = "0.9.1", features = ["runtime-tokio", "mysql"] }
